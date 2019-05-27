@@ -19,14 +19,14 @@ from __future__ import division
 from __future__ import print_function
 
 import functools
-from datasets import dataset_mnist
-from foundations import experiment
-from foundations import model_fc
-from foundations import paths
-from foundations import pruning
-from foundations import save_restore
-from foundations import trainer
-from mnist_fc import constants
+from lottery_ticket.datasets import dataset_mnist
+from lottery_ticket.foundations import experiment
+from lottery_ticket.foundations import model_fc
+from lottery_ticket.foundations import paths
+from lottery_ticket.foundations import pruning
+from lottery_ticket.foundations import save_restore
+from lottery_ticket.foundations import trainer
+from lottery_ticket.mnist_fc import constants
 
 
 def train(output_dir,

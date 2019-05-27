@@ -12,26 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Run this script to download MNIST and FashionMNIST datasets."""
+"""Runs the reinitialization experiment for Lenet 300-100 trained on MNIST."""
 
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
 import fire
-from keras.datasets import mnist
-from foundations import save_restore
-from mnist_fc import locations
+from lottery_ticket.mnist_fc import reinitialize
 
 
-def download(location=locations.MNIST_LOCATION):
-  d = {}
-  (d['x_train'], d['y_train']), (d['x_test'], d['y_test']) = mnist.load_data()
-  save_restore.save_network(location, d)
+def main(_=None):
+  fire.Fire(reinitialize.train)
 
-
-def main():
-  fire.Fire(download)
 
 if __name__ == '__main__':
   main()

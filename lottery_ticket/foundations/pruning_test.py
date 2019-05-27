@@ -12,19 +12,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Runs the reinitialization experiment for Lenet 300-100 trained on MNIST."""
+"""Tests for pruning.py."""
 
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import fire
-from mnist_fc import reinitialize
+from lottery_ticket.foundations import pruning
+import numpy as np
+import tensorflow as tf
 
 
-def main(_=None):
-  fire.Fire(reinitialize.train)
+class PruningTest(tf.test.TestCase):
+
+  def test_union(self):
+    masks1 = {'layer0': np.array([[1, 0], [0, 1]])}
+    masks2 = {'layer0': np.array([[0, 1], [0, 1]])}
+    union_mask = pruning.union(masks1, masks2)
+    self.assertTrue((union_mask['layer0'] == np.array([[1, 1], [0, 1]])).all())
+
+  def test_intersect(self):
+    masks1 = {'layer0': np.array([[1, 0], [0, 1]])}
+    masks2 = {'layer0': np.array([[0, 1], [0, 1]])}
+    intersect_mask = pruning.intersect(masks1, masks2)
+    self.assertTrue(
+        (intersect_mask['layer0'] == np.array([[0, 0], [0, 1]])).all())
 
 
 if __name__ == '__main__':
-  main()
+  tf.test.main()

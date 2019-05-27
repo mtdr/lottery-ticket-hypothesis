@@ -12,22 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Generates the argfile for the fashionmnist experiments."""
+"""Runs the Lenet 300-100 model trained on MNIST."""
 
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from absl import app
-from mnist_fc import constants
+import fire
+from lottery_ticket.mnist_fc import train
 
 
-def main(argv):
-  del argv  # Unused.
-  line_format = '--output_dir={output_dir}'
+def main(_=None):
+  fire.Fire(train.train)
 
-  for trial in range(1, 21):
-    print(line_format.format(output_dir=constants.trial(trial)))
 
 if __name__ == '__main__':
-  app.run(main)
+  main()

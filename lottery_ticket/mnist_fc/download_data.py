@@ -12,32 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Tests for pruning.py."""
+"""Run this script to download MNIST and FashionMNIST datasets."""
 
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from foundations import pruning
-import numpy as np
-import tensorflow as tf
+import fire
+from keras.datasets import mnist
+from lottery_ticket.foundations import save_restore
+from lottery_ticket.mnist_fc import locations
 
 
-class PruningTest(tf.test.TestCase):
+def download(location=locations.MNIST_LOCATION):
+  d = {}
+  (d['x_train'], d['y_train']), (d['x_test'], d['y_test']) = mnist.load_data()
+  save_restore.save_network(location, d)
 
-  def test_union(self):
-    masks1 = {'layer0': np.array([[1, 0], [0, 1]])}
-    masks2 = {'layer0': np.array([[0, 1], [0, 1]])}
-    union_mask = pruning.union(masks1, masks2)
-    self.assertTrue((union_mask['layer0'] == np.array([[1, 1], [0, 1]])).all())
 
-  def test_intersect(self):
-    masks1 = {'layer0': np.array([[1, 0], [0, 1]])}
-    masks2 = {'layer0': np.array([[0, 1], [0, 1]])}
-    intersect_mask = pruning.intersect(masks1, masks2)
-    self.assertTrue(
-        (intersect_mask['layer0'] == np.array([[0, 0], [0, 1]])).all())
-
+def main():
+  fire.Fire(download)
 
 if __name__ == '__main__':
-  tf.test.main()
+  main()

@@ -20,8 +20,8 @@ from __future__ import print_function
 
 import functools
 import os
-from foundations import paths
-from mnist_fc import locations
+from lottery_ticket.foundations import paths
+from lottery_ticket.mnist_fc import locations
 import tensorflow as tf
 
 HYPERPARAMETERS = {'layers': [(300, tf.nn.relu), (100, tf.nn.relu), (10, None)]}

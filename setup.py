@@ -32,7 +32,7 @@ VERSION = '1'
 URL = 'https://github.com/brain-research/lottery-ticket'
 
 setup(
-    name='lottery-ticket',
+    name='lottery_ticket',
     version=VERSION,
     description=SHORT_DESCRIPTION,
     url=URL,
@@ -65,7 +65,7 @@ setup(
 
     keywords='lottery ticket hypothesis',
 
-    packages=['lottery-ticket'],
+    packages=['lottery_ticket'],
 
     install_requires=DEPENDENCIES,
 )

@@ -18,9 +18,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from foundations import save_restore
-from mnist_fc import constants
-from mnist_fc import train as train_mnist
+from lottery_ticket.foundations import save_restore
+from lottery_ticket.mnist_fc import constants
+from lottery_ticket.mnist_fc import train as train_mnist
 import numpy as np
 
 
