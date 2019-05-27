@@ -19,7 +19,7 @@ from __future__ import division
 from __future__ import print_function
 
 import fire
-from lottery_ticket.mnist_fc import train
+from mnist_fc import train
 
 
 def main(_=None):

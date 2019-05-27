@@ -21,7 +21,7 @@ from __future__ import print_function
 import csv
 import os
 
-from lottery_ticket.foundations import paths
+from foundations import paths
 import numpy as np
 import six
 import tensorflow as tf

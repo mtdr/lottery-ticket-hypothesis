@@ -21,12 +21,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from lottery_ticket.datasets import dataset_mnist
-from lottery_ticket.foundations import model_fc
-from lottery_ticket.foundations import save_restore
-from lottery_ticket.foundations import trainer
-from lottery_ticket.foundations import union
-from lottery_ticket.mnist_fc import constants
+from datasets import dataset_mnist
+from foundations import model_fc
+from foundations import save_restore
+from foundations import trainer
+from foundations import union
+from mnist_fc import constants
 import tensorflow as tf
 
 

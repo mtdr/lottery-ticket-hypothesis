@@ -20,8 +20,8 @@ from __future__ import print_function
 
 import fire
 from keras.datasets import mnist
-from lottery_ticket.foundations import save_restore
-from lottery_ticket.mnist_fc import locations
+from foundations import save_restore
+from mnist_fc import locations
 
 
 def download(location=locations.MNIST_LOCATION):
@@ -30,7 +30,7 @@ def download(location=locations.MNIST_LOCATION):
   save_restore.save_network(location, d)
 
 
-def main(unused_argv):
+def main():
   fire.Fire(download)
 
 if __name__ == '__main__':

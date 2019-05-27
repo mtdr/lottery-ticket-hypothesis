@@ -19,8 +19,11 @@ from __future__ import division
 from __future__ import print_function
 
 import fire
-from lottery_ticket.mnist_fc import lottery_experiment
+from mnist_fc import lottery_experiment
 
+# Just disables the warning, doesn't enable AVX/FMA
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 def main(_=None):
   fire.Fire(lottery_experiment.train)

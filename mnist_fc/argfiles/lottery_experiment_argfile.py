@@ -19,7 +19,7 @@ from __future__ import division
 from __future__ import print_function
 
 from absl import app
-from lottery_ticket.mnist_fc import constants
+from mnist_fc import constants
 
 
 def main(argv):

@@ -18,7 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from lottery_ticket.foundations import model_base
+from foundations import model_base
 import tensorflow as tf
 
 
